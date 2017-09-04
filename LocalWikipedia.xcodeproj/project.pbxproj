@@ -10,13 +10,14 @@
 		C72DA5261F5DE33D008953CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72DA5251F5DE33D008953CD /* AppDelegate.swift */; };
 		C72DA52D1F5DE33D008953CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C72DA52C1F5DE33D008953CD /* Assets.xcassets */; };
 		C72DA5301F5DE33D008953CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C72DA52E1F5DE33D008953CD /* LaunchScreen.storyboard */; };
-		C72DA53B1F5DE33E008953CD /* LocalWikipediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72DA53A1F5DE33E008953CD /* LocalWikipediaTests.swift */; };
 		C72DA5491F5DE3BB008953CD /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72DA5481F5DE3BB008953CD /* AppNavigationController.swift */; };
 		C72DA5541F5DE811008953CD /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72DA5521F5DE811008953CD /* ArticlesViewController.swift */; };
 		C72DA5551F5DE811008953CD /* ArticlesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C72DA5531F5DE811008953CD /* ArticlesViewController.xib */; };
 		C72DA5581F5DE84A008953CD /* ArticlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72DA5571F5DE84A008953CD /* ArticlesViewModel.swift */; };
 		C72DA55C1F5DEAC8008953CD /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72DA55B1F5DEAC8008953CD /* Alamofire.framework */; };
 		C72DA5601F5DF499008953CD /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72DA55F1F5DF499008953CD /* NetworkClient.swift */; };
+		C72DA5621F5DF8A0008953CD /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72DA5611F5DF8A0008953CD /* Article.swift */; };
+		C72DA5651F5DFBE2008953CD /* ArticleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C72DA53A1F5DE33E008953CD /* ArticleTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 		C72DA52F1F5DE33D008953CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C72DA5311F5DE33D008953CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C72DA5361F5DE33E008953CD /* LocalWikipediaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocalWikipediaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C72DA53A1F5DE33E008953CD /* LocalWikipediaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalWikipediaTests.swift; sourceTree = "<group>"; };
+		C72DA53A1F5DE33E008953CD /* ArticleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTests.swift; sourceTree = "<group>"; };
 		C72DA53C1F5DE33E008953CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C72DA5481F5DE3BB008953CD /* AppNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
 		C72DA5521F5DE811008953CD /* ArticlesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +45,7 @@
 		C72DA5571F5DE84A008953CD /* ArticlesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticlesViewModel.swift; sourceTree = "<group>"; };
 		C72DA55B1F5DEAC8008953CD /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		C72DA55F1F5DF499008953CD /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		C72DA5611F5DF8A0008953CD /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +99,7 @@
 		C72DA5391F5DE33E008953CD /* LocalWikipediaTests */ = {
 			isa = PBXGroup;
 			children = (
-				C72DA53A1F5DE33E008953CD /* LocalWikipediaTests.swift */,
+				C72DA53A1F5DE33E008953CD /* ArticleTests.swift */,
 				C72DA53C1F5DE33E008953CD /* Info.plist */,
 			);
 			path = LocalWikipediaTests;
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				C72DA54E1F5DE777008953CD /* Controllers */,
+				C72DA5631F5DF8A3008953CD /* Model */,
 				C72DA54F1F5DE780008953CD /* ViewModel */,
 				C72DA5561F5DE814008953CD /* Views */,
 			);
@@ -203,6 +206,14 @@
 				C72DA55F1F5DF499008953CD /* NetworkClient.swift */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		C72DA5631F5DF8A3008953CD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C72DA5611F5DF8A0008953CD /* Article.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +343,7 @@
 			files = (
 				C72DA5541F5DE811008953CD /* ArticlesViewController.swift in Sources */,
 				C72DA5601F5DF499008953CD /* NetworkClient.swift in Sources */,
+				C72DA5621F5DF8A0008953CD /* Article.swift in Sources */,
 				C72DA5581F5DE84A008953CD /* ArticlesViewModel.swift in Sources */,
 				C72DA5491F5DE3BB008953CD /* AppNavigationController.swift in Sources */,
 				C72DA5261F5DE33D008953CD /* AppDelegate.swift in Sources */,
@@ -342,7 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C72DA53B1F5DE33E008953CD /* LocalWikipediaTests.swift in Sources */,
+				C72DA5651F5DFBE2008953CD /* ArticleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
