@@ -2,7 +2,7 @@
 //  NetworkClient.swift
 //  LocalWikipedia
 //
-//  Created by Billybatigol on 04/09/2017.
+//  Created by Vasileios Loumanis on 04/09/2017.
 //  Copyright © 2017 Vasileios Loumanis. All rights reserved.
 //
 
@@ -13,7 +13,8 @@ struct Urls {
     static let articlesUrl = "/w/api.php?action=query&list=geosearch&gsradius=10000&gscoord=51.508164|-0.106511&format=json"
 }
 
-enum ResponseError: LocalizedError {
+enum NetworkClientError: LocalizedError {
+    case urlMissing
     case connection
     case jsonResponseEmpty
 }

@@ -2,7 +2,7 @@
 //  Article.swift
 //  LocalWikipedia
 //
-//  Created by Billybatigol on 04/09/2017.
+//  Created by Vasileios Loumanis on 04/09/2017.
 //  Copyright © 2017 Vasileios Loumanis. All rights reserved.
 //
 
@@ -39,5 +39,23 @@ class Article {
         self.latitude = latitude
         self.longitude = longitude
         self.distance = distance
+    }
+}
+
+extension Article {
+    static let jsonKey = "query"
+    static let jsonSubKey = "geosearch"
+    
+    static func parseArticles(json: [String: Any]) throws -> [Article] {
+        let articles: [Article] = {
+            if let geosearchDictionary = json[jsonKey] as? [String: Any],
+               let articlesArray = geosearchDictionary[jsonSubKey] as? [Any] {
+                return articlesArray.flatMap { articleDictionary in
+                    guard let articleDictionary = articleDictionary as? [String : Any] else { return nil }
+                    return try? Article(dictionary: articleDictionary) }
+            }
+            return [Article]()
+        }()
+        return articles
     }
 }

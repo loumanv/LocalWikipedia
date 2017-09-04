@@ -2,7 +2,7 @@
 //  AppNavigationController.swift
 //  LocalWikipedia
 //
-//  Created by Billybatigol on 04/09/2017.
+//  Created by Vasileios Loumanis on 04/09/2017.
 //  Copyright © 2017 Vasileios Loumanis. All rights reserved.
 //
 
@@ -13,7 +13,7 @@ class AppNavigationController {
     static let sharedInstance = AppNavigationController()
     
     lazy var navigationController: UINavigationController = {
-        let auctionsVC = ArticlesViewController(viewModel: ArticlesViewModel())
-        return UINavigationController(rootViewController: auctionsVC)
+        let articlesVC = ArticlesViewController(viewModel: ArticlesViewModel())
+        return UINavigationController(rootViewController: articlesVC)
     }()
 }
