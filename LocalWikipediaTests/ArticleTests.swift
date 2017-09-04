@@ -2,7 +2,7 @@
 //  ArticleTests.swift
 //  ArticleTests
 //
-//  Created by Billybatigol on 04/09/2017.
+//  Created by Vasileios Loumanis on 04/09/2017.
 //  Copyright © 2017 Vasileios Loumanis. All rights reserved.
 //
 

@@ -14,6 +14,8 @@ struct UrlStrings {
     static var parameters = ["action": "query", "list": "geosearch", "format": "json"]
     static let articlesUrl = "/w/api.php"
     static let coordinatesKey = "gscoord"
+    static let baseMobileUrl = "https://en.m.wikipedia.org"
+    static let pageUrl = "/?curid="
 }
 
 enum NetworkClientError: LocalizedError {

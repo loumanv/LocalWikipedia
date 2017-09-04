@@ -29,7 +29,6 @@ class ArticlesViewModel {
     
     func loadArticles() {
         controllerOutput?.isPerformingRequest(true)
-
         networkClient.loadArticles(location: CLLocation(latitude: 51.507801, longitude: -0.10473)) { [weak self] (data, error) in
             
             self?.controllerOutput?.isPerformingRequest(false)

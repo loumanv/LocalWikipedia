@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class AppNavigationController {
     
@@ -14,6 +15,19 @@ class AppNavigationController {
     
     lazy var navigationController: UINavigationController = {
         let articlesVC = ArticlesViewController(viewModel: ArticlesViewModel())
+        articlesVC.controllerOutput = self
         return UINavigationController(rootViewController: articlesVC)
     }()
+}
+
+extension AppNavigationController: ArticlesViewControllerOutput {
+    func didSelectRowAction(sender: UIViewController, selectedArticle: Article) {
+        guard let url = URL(string: UrlStrings.baseMobileUrl + UrlStrings.pageUrl + String(selectedArticle.pageId)) else {
+            (sender as? ArticlesViewController)?.handle(error: NetworkClientError.urlMissing)
+            return
+        }
+        let safariVC = SFSafariViewController(url: url, entersReaderIfAvailable: true)
+        safariVC.title = selectedArticle.title
+        navigationController.pushViewController(safariVC, animated: true)
+    }
 }

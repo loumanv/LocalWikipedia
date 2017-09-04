@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol ArticlesViewControllerOutput {
+    func didSelectRowAction(sender: UIViewController, selectedArticle: Article)
+}
+
 class ArticlesViewController: UIViewController {
     
     var viewModel: ArticlesViewModel
-    
+    var controllerOutput: ArticlesViewControllerOutput?
+
     @IBOutlet weak var table: UITableView! {
         didSet {
             table.estimatedRowHeight = 44
@@ -76,7 +81,8 @@ extension ArticlesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        guard let articles = viewModel.articles else { return }
+        controllerOutput?.didSelectRowAction(sender: self, selectedArticle:  articles[indexPath.row])
     }
 }
 
