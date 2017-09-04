@@ -7,10 +7,13 @@
 //
 
 import Alamofire
+import CoreLocation
 
-struct Urls {
+struct UrlStrings {
     static let baseUrl = "https://en.wikipedia.org"
-    static let articlesUrl = "/w/api.php?action=query&list=geosearch&gsradius=10000&gscoord=51.508164|-0.106511&format=json"
+    static var parameters = ["action": "query", "list": "geosearch", "format": "json"]
+    static let articlesUrl = "/w/api.php"
+    static let coordinatesKey = "gscoord"
 }
 
 enum NetworkClientError: LocalizedError {
@@ -23,8 +26,8 @@ class NetworkClient {
     
     public static let shared = NetworkClient()
     
-    func load(url: URL, completion: @escaping ((Any?, Error?) -> Void)) {
-        Alamofire.request(url).responseJSON { response in
+    func load(urlString: String, parameters: [String: String]?, completion: @escaping ((Any?, Error?) -> Void)) {
+        Alamofire.request(urlString, parameters: parameters).responseJSON { response in
             
             switch response.result {
             case .success(let data):
@@ -34,6 +37,12 @@ class NetworkClient {
                 completion(nil, error)
             }
         }
+    }
+    
+    func loadArticles(location: CLLocation, completion: @escaping ((Any?, Error?) -> Void)) {
+        var parameters = UrlStrings.parameters
+        parameters[UrlStrings.coordinatesKey] = "\(location.coordinate.latitude)|\(location.coordinate.longitude)"
+        load(urlString: UrlStrings.baseUrl + UrlStrings.articlesUrl, parameters: parameters, completion: completion)
     }
 }
 

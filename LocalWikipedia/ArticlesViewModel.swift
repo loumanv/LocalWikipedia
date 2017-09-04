@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol ArticlesViewModelOutput {
     func articlesFetched()
@@ -28,12 +29,8 @@ class ArticlesViewModel {
     
     func loadArticles() {
         controllerOutput?.isPerformingRequest(true)
-        guard let encoded = (Urls.baseUrl + Urls.articlesUrl).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-              let url = URL(string: encoded) else {
-                controllerOutput?.handle(error: NetworkClientError.urlMissing)
-                return
-        }
-        networkClient.load(url: url) { [weak self] (data, error) in
+
+        networkClient.loadArticles(location: CLLocation(latitude: 51.507801, longitude: -0.10473)) { [weak self] (data, error) in
             
             self?.controllerOutput?.isPerformingRequest(false)
             guard error == nil,
