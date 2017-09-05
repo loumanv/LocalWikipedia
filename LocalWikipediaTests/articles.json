@@ -1,0 +1,97 @@
+{
+    "batchcomplete":"",
+    "query":{
+        "geosearch":[
+                     {
+                     "pageid":15481844,
+                     "ns":0,
+                     "title":"Sea Containers House",
+                     "lat":51.5085,
+                     "lon":-0.107,
+                     "dist":50.4,
+                     "primary":""
+                     },
+                     {
+                     "pageid":37292109,
+                     "ns":0,
+                     "title":"Gabriel's Wharf",
+                     "lat":51.508177,
+                     "lon":-0.108053,
+                     "dist":106.7,
+                     "primary":""
+                     },
+                     {
+                     "pageid":562404,
+                     "ns":0,
+                     "title":"South Bank Tower",
+                     "lat":51.507416666667,
+                     "lon":-0.10763888888889,
+                     "dist":114,
+                     "primary":""
+                     },
+                     {
+                     "pageid":34398002,
+                     "ns":0,
+                     "title":"Blackfriars Rotunda",
+                     "lat":51.50791,
+                     "lon":-0.10476,
+                     "dist":124.4,
+                     "primary":""
+                     },
+                     {
+                     "pageid":12698790,
+                     "ns":0,
+                     "title":"Surrey Institution",
+                     "lat":51.50791,
+                     "lon":-0.10476,
+                     "dist":124.4,
+                     "primary":""
+                     },
+                     {
+                     "pageid":14931082,
+                     "ns":0,
+                     "title":"One Blackfriars",
+                     "lat":51.507801,
+                     "lon":-0.10473,
+                     "dist":129.7,
+                     "primary":""
+                     },
+                     {
+                     "pageid":357398,
+                     "ns":0,
+                     "title":"Oxo Tower",
+                     "lat":51.508272,
+                     "lon":-0.108547,
+                     "dist":141.4,
+                     "primary":""
+                     },
+                     {
+                     "pageid":5342526,
+                     "ns":0,
+                     "title":"London Nautical School",
+                     "lat":51.5066,
+                     "lon":-0.1084,
+                     "dist":217.6,
+                     "primary":""
+                     },
+                     {
+                     "pageid":57470,
+                     "ns":0,
+                     "title":"Blackfriars Bridge",
+                     "lat":51.5097,
+                     "lon":-0.1044,
+                     "dist":224.8,
+                     "primary":""
+                     },
+                     {
+                     "pageid":49364581,
+                     "ns":0,
+                     "title":"Talkradio",
+                     "lat":51.506111111111,
+                     "lon":-0.10666666666667,
+                     "dist":228.5,
+                     "primary":""
+                     }
+                     ]
+    }
+}
