@@ -44,6 +44,14 @@ class ArticlesViewController: UIViewController {
         addNavigationItems()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.locationManager?.startUpdatingLocation()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        viewModel.locationManager?.stopUpdatingLocation()
+    }
+    
     func reload() {
         viewModel.loadArticles()
     }
@@ -87,12 +95,12 @@ extension ArticlesViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension ArticlesViewController: ArticlesViewModelOutput {
-    func articlesFetched() {
+    func updateTable() {
         table.reloadData()
     }
     
-    func handle(error: Error) {
-        showErrorMessage(title: "An Error Occurred", message: error.localizedDescription)
+    func handle(error: AppError) {
+        showErrorMessage(title: error.localizedTitle, message: error.localizedDescription)
     }
     
     func isPerformingRequest(_ isPerformingRequest: Bool) {

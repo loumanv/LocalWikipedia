@@ -46,7 +46,7 @@ extension Article {
     static let jsonKey = "query"
     static let jsonSubKey = "geosearch"
     
-    static func parseArticles(json: [String: Any]) throws -> [Article] {
+    static func parseArticles(json: [String: Any]) -> [Article] {
         let articles: [Article] = {
             if let geosearchDictionary = json[jsonKey] as? [String: Any],
                let articlesArray = geosearchDictionary[jsonSubKey] as? [Any] {

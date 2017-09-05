@@ -23,7 +23,7 @@ class AppNavigationController {
 extension AppNavigationController: ArticlesViewControllerOutput {
     func didSelectRowAction(sender: UIViewController, selectedArticle: Article) {
         guard let url = URL(string: UrlStrings.baseMobileUrl + UrlStrings.pageUrl + String(selectedArticle.pageId)) else {
-            (sender as? ArticlesViewController)?.handle(error: NetworkClientError.urlMissing)
+            (sender as? ArticlesViewController)?.handle(error: AppError.urlMissing)
             return
         }
         let safariVC = SFSafariViewController(url: url, entersReaderIfAvailable: true)

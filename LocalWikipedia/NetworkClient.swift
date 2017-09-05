@@ -11,22 +11,25 @@ import CoreLocation
 
 struct UrlStrings {
     static let baseUrl = "https://en.wikipedia.org"
-    static var parameters = ["action": "query", "list": "geosearch", "format": "json"]
+    static var parameters = [
+        "action": "query",
+        "list": "geosearch",
+        "format": "json"
+    ]
     static let articlesUrl = "/w/api.php"
     static let coordinatesKey = "gscoord"
     static let baseMobileUrl = "https://en.m.wikipedia.org"
     static let pageUrl = "/?curid="
 }
 
-enum NetworkClientError: LocalizedError {
-    case urlMissing
-    case connection
-    case jsonResponseEmpty
+struct NetworkClientError {
+    static let jsonResponseEmpty = AppError(localizedTitle: "JSON Response Empty", localizedDescription: "JSON Response Empty", code: 0)
 }
 
 class NetworkClient {
     
     public static let shared = NetworkClient()
+    var receivingArticlesData: Bool = false
     
     func load(urlString: String, parameters: [String: String]?, completion: @escaping ((Any?, Error?) -> Void)) {
         Alamofire.request(urlString, parameters: parameters).responseJSON { response in
@@ -42,9 +45,14 @@ class NetworkClient {
     }
     
     func loadArticles(location: CLLocation, completion: @escaping ((Any?, Error?) -> Void)) {
+        guard receivingArticlesData == false else { return }
         var parameters = UrlStrings.parameters
         parameters[UrlStrings.coordinatesKey] = "\(location.coordinate.latitude)|\(location.coordinate.longitude)"
-        load(urlString: UrlStrings.baseUrl + UrlStrings.articlesUrl, parameters: parameters, completion: completion)
+        receivingArticlesData = true
+        load(urlString: UrlStrings.baseUrl + UrlStrings.articlesUrl, parameters:parameters) { [weak self] (data, error) in
+            self?.receivingArticlesData = false
+            completion(data, error)
+        }
     }
 }
 
