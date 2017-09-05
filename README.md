@@ -1,4 +1,4 @@
-# Auctions
+# LocalWikipedia
 
 An iPhone app that displays Wikipedia articles for nearby locations. The app is written in Swift and supports iOS 9 or above. Uses Carthage and Alamofire.
 
